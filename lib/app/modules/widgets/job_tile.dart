@@ -18,7 +18,9 @@ class JobTile extends StatelessWidget {
   Widget build(BuildContext context) {
     print(index.toString());
 
-    jobController.fetchJobs();
+    //jobController.fetchJobs();
+    //customerController.customerList.refresh();
+    //turboController.turboList.refresh();
     Job job = jobController.jobList[index];
     int customerId = int.parse(job.musteri.toString());
     Customer customer = customerController.customerList[customerId];

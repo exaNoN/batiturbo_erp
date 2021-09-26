@@ -5,7 +5,7 @@ import 'package:get/get.dart';
 // ignore: must_be_immutable
 class DevNote extends StatelessWidget {
   // const DevNote({Key? key}) : super(key: key);
-  var jobController = Get.put(JobController());
+  //var jobController = Get.put(JobController());
 
   @override
   Widget build(BuildContext context) {
@@ -15,7 +15,7 @@ class DevNote extends StatelessWidget {
           leading: IconButton(
             icon: Icon(Icons.arrow_back, color: Colors.black),
             onPressed: () {
-              jobController.fetchJobs();
+              //jobController.fetchJobs();
               Get.toNamed("home");
             },
             //onPressed: () => Get.back(),

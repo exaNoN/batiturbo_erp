@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:get/get_navigation/get_navigation.dart';
 
+import 'app/modules/controllers/general_controller.dart';
 import 'app/modules/routes/app_pages.dart';
 
 //5057120634adsl@turk.net
@@ -8,6 +10,12 @@ import 'app/modules/routes/app_pages.dart';
 
 void main() {
   WidgetsFlutterBinding.ensureInitialized();
+  var jobC = Get.put(JobController());
+  jobC.fetchJobs();
+  var customerC = Get.put(CustomerController());
+  customerC.fetchCustomers();
+  var turboC = Get.put(TurboController());
+  turboC.fetchTurbos();
   //await Firebase.initializeApp();
   runApp(MyApp());
 }

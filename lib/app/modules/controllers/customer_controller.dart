@@ -16,6 +16,7 @@ class CustomerController extends GetxController {
 
   @override
   void onInit() async {
+    customerList.refresh();
     fetchCustomers();
     super.onInit();
   }
@@ -47,6 +48,7 @@ class CustomerController extends GetxController {
       isLoading(true);
       var customers = await CustomerProvider().fetchCustomers();
       customerList.value = customers;
+      //print(customers.length);
     } catch (exception) {
       print("fetchCustomers Controller exception: ${exception.toString()}");
       showSnackBar("fetchCustomers Controller exception", exception.toString(),

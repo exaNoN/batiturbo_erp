@@ -19,6 +19,7 @@ class JobController extends GetxController {
   RxString getJobcreatedAt = "".obs;
 
   void onInit() async {
+    print("JobController init");
     fetchJobs();
     super.onInit();
   }
@@ -53,6 +54,7 @@ class JobController extends GetxController {
     try {
       isLoading(true);
       var jobs = await JobProvider().fetchJobs();
+      print(jobs.toString());
       jobList.value = jobs;
     } catch (exception) {
       print("fetchJobs Controller exception: ${exception.toString()}");
