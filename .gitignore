@@ -1,0 +1,63 @@
+# Miscellaneous
+*.class
+*.log
+*.pyc
+*.swp
+.DS_Store
+.atom/
+.buildlog/
+.history
+.svn/
+
+# MD5:  81:83:6E:6B:FF:EE:ED:84:09:BB:9E:73:ED:6E:77:EA
+#         SHA1: 22:EF:27:44:A2:D0:DD:39:63:93:01:0A:EB:FC:8A:81:4C:93:32:0D
+#         SHA256: 7F:2A:A1:5E:A3:AF:A2:09:FD:88:BC:DA:E9:8B:9E:0A:8A:31:61:CC:FB:EE:4A:E0:2D:A4:1E:D2:0E:A8:36:CE
+
+#mysql -u ugy45aW -p 478dHt1% -h 94.138.202.200
+
+#Ahmetin db isi
+#94.138.202.200
+
+#DB:
+#tryaj16
+#user: ugy45aW
+#pass: 478dHt1%
+
+
+# IntelliJ related
+*.iml
+*.ipr
+*.iws
+.idea/
+
+# The .vscode folder contains launch configuration and tasks you configure in
+# VS Code which you may wish to be included in version control, so this line
+# is commented out by default.
+#.vscode/
+
+# Flutter/Dart/Pub related
+**/doc/api/
+**/ios/Flutter/.last_build_id
+.dart_tool/
+.flutter-plugins
+.flutter-plugins-dependencies
+.packages
+.pub-cache/
+.pub/
+/build/
+/app/data/
+
+# Web related
+lib/generated_plugin_registrant.dart
+
+# Symbolication related
+app.*.symbols
+
+# Obfuscation related
+app.*.map.json
+
+# Android Studio will place build artifacts here
+/android/app/debug
+/android/app/profile
+/android/app/release
+lib/app/data/serverinfo.dart

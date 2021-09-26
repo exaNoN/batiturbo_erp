@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "298753221106",
+    "project_id": "batiturbo-erp",
+    "storage_bucket": "batiturbo-erp.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:298753221106:android:1271d066e48fa40ca68b6b",
+        "android_client_info": {
+          "package_name": "com.batiturbo.batiturbo_erp"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "298753221106-fvjessntp16fdh48u9m9lq3v9b1gidls.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBLIbdsviGAb0KbnJrFLxykqvtOxxoaqwY"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "298753221106-fvjessntp16fdh48u9m9lq3v9b1gidls.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
