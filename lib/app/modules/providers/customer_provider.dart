@@ -57,6 +57,31 @@ class CustomerProvider extends GetConnect {
     }
   }
 
+  // query Customers
+
+  Future<List<Customer>> getCustomerSuggestions(String query) async {
+    try {
+      final response = await get("$serverUrl$customersUrl");
+      if (response.status.hasError) {
+        print(
+            "fetchCustomers response.status.hasError error ${response.statusText.toString()}");
+        return Future.error(response.statusText.toString());
+      } else {
+        final List jsonString = json.decode(response.bodyString.toString());
+        return jsonString
+            .map((json) => Customer.fromJson(json))
+            .where((customer) {
+          final nameLower = customer.name.toLowerCase();
+          final queryLower = query.toLowerCase();
+          return nameLower.contains(queryLower);
+        }).toList();
+      }
+    } catch (exception) {
+      print("fetchCustomers Provider exception ${exception.toString()}");
+      return Future.error(exception.toString());
+    }
+  }
+
   //createCustomer
   Future<String> createCustomer(Map data) async {
     try {

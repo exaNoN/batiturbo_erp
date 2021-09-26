@@ -1,4 +1,3 @@
-import 'package:batiturbo_erp/app/modules/widgets/customer_field.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
@@ -16,17 +15,7 @@ class CreateJobPage extends StatelessWidget {
             },
             icon: Icon(Icons.arrow_back)),
       ),
-      body: SafeArea(
-        child: Container(
-          padding: EdgeInsets.all(8),
-          child: Column(
-            mainAxisSize: MainAxisSize.max,
-            children: [
-              CustomerField(),
-            ],
-          ),
-        ),
-      ),
+      body: SafeArea(child: Container()),
     );
   }
 }

@@ -21,6 +21,13 @@ class JobController extends GetxController {
   RxString getJobcreatedBy = "".obs;
   RxString getJobcreatedAt = "".obs;
 
+  RxString selectedCustomerId = ''.obs;
+  RxBool isCustomerSelected = false.obs;
+  RxString selectedTurboId = ''.obs;
+  RxBool isTurboSelected = false.obs;
+  RxString typedDef = ''.obs;
+  RxString typedTeklif = ''.obs;
+
   void onInit() async {
     print("JobController init");
     fetchJobs();

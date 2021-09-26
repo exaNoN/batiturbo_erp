@@ -1,7 +1,7 @@
 import 'package:batiturbo_erp/app/modules/controllers/general_controller.dart';
 import 'package:batiturbo_erp/app/modules/controllers/turbo_controller.dart';
 import 'package:batiturbo_erp/app/modules/widgets/job_tile.dart';
-import 'package:batiturbo_erp/app/pages/job_page.dart';
+import 'package:batiturbo_erp/app/pages/createjob_page.dart';
 import 'package:batiturbo_erp/app/pages/dev_note.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';

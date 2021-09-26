@@ -1,4 +1,6 @@
 import 'package:batiturbo_erp/app/modules/bindings/home_bindings.dart';
+import 'package:batiturbo_erp/app/modules/bindings/job_bindings.dart';
+import 'package:batiturbo_erp/app/pages/createjob_page.dart';
 import 'package:batiturbo_erp/app/pages/dev_note.dart';
 import 'package:batiturbo_erp/app/pages/home_page.dart';
 import 'package:get/get.dart';
@@ -14,6 +16,11 @@ class AppPages {
       page: () => HomePage(),
       binding: HomeBinding(),
     ),
-    GetPage(name: "/devNote", page: () => DevNote())
+    GetPage(
+      name: Paths.createJob,
+      page: () => CreateJobPage(),
+      binding: JobBinding(),
+    ),
+    GetPage(name: Paths.devNote, page: () => DevNote())
   ];
 }

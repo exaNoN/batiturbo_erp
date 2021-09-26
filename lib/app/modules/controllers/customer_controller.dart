@@ -1,3 +1,5 @@
+import 'dart:convert';
+
 import 'package:batiturbo_erp/app/modules/models/customer_model.dart';
 import 'package:batiturbo_erp/app/modules/providers/customer_provider.dart';
 import 'package:flutter/material.dart';
@@ -9,11 +11,16 @@ import 'general_controller.dart';
 class CustomerController extends GetxController {
   var isLoading = true.obs;
   var customerList = <Customer>[].obs;
+  var customerListSuggestions = <Customer>[].obs;
   var id = int.parse((1.obs).toString());
   RxString getCustomerName = "".obs;
   RxString getCustomerPhone = "".obs;
   RxString getCustomerVKN = "".obs;
   RxString getCustomerAlacak = "".obs;
+
+  var customerEditingController = TextEditingController();
+  var customerNameController = TextEditingController();
+  var customerPhoneController = TextEditingController();
 
   @override
   void onInit() async {
@@ -57,6 +64,11 @@ class CustomerController extends GetxController {
       isLoading(false);
       //update();
     }
+  }
+
+  Future<List<Customer>> getCustomerSuggestions(String query) async {
+    var customers = await CustomerProvider().getCustomerSuggestions(query);
+    return customerListSuggestions.value = customers;
   }
 
   // Save Data
