@@ -10,12 +10,9 @@ import 'app/modules/routes/app_pages.dart';
 
 void main() {
   WidgetsFlutterBinding.ensureInitialized();
-  var jobC = Get.put(JobController());
-  jobC.fetchJobs();
-  var customerC = Get.put(CustomerController());
-  customerC.fetchCustomers();
-  var turboC = Get.put(TurboController());
-  turboC.fetchTurbos();
+  Get.put(JobController());
+  Get.put(CustomerController());
+  Get.put(TurboController());
   //await Firebase.initializeApp();
   runApp(MyApp());
 }

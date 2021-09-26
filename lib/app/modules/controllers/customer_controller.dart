@@ -2,6 +2,7 @@ import 'package:batiturbo_erp/app/modules/models/customer_model.dart';
 import 'package:batiturbo_erp/app/modules/providers/customer_provider.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:get/get_navigation/src/root/parse_route.dart';
 import 'package:get/get_state_manager/get_state_manager.dart';
 import 'general_controller.dart';
 
@@ -21,19 +22,18 @@ class CustomerController extends GetxController {
     super.onInit();
   }
 
+  Customer findCustomer(int id) =>
+      customerList.firstWhere((customer) => customer.id == id,
+          orElse: () => Customer(phone: '05467670392', name: 'Yanlış arama'));
+
   void getCustomer(var id) async {
     try {
       isLoading(true);
       var customer = await CustomerProvider().getCustomer(id);
-      getCustomerName.value = customer.last.name;
-      getCustomerPhone.value = customer.last.phone;
-      getCustomerVKN.value = customer.last.vkn!;
-      getCustomerAlacak.value = customer.last.alacak!;
-      if (id != 1) {
-        showSnackBar("Get Customer", getCustomerName.value, Colors.blue);
-      } else {
-        print("getCustomer id:1");
-      }
+      getCustomerName.value = customer.name;
+      getCustomerPhone.value = customer.phone;
+      getCustomerVKN.value = customer.vkn!;
+      getCustomerAlacak.value = customer.alacak!;
     } catch (exception) {
       print("getCustomer Controller exception: ${exception.toString()}");
       showSnackBar(

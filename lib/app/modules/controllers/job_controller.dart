@@ -6,9 +6,12 @@ import 'package:get/get_state_manager/get_state_manager.dart';
 import 'general_controller.dart';
 
 class JobController extends GetxController {
+  //var customerList = Get.find<CustomerController>().customerList.obs;
+
   var isLoading = true.obs;
   var jobList = <Job>[].obs;
-  var id = int.parse((1.obs).toString());
+  int id = int.parse((1.obs).toString());
+
   RxString getJobtanim1 = "".obs;
   RxString getJobmusteri = "".obs;
   RxString getJobtanim2 = "".obs;
@@ -23,6 +26,9 @@ class JobController extends GetxController {
     fetchJobs();
     super.onInit();
   }
+
+  Job findJob(int id) =>
+      jobList.firstWhere((job) => job.id == id, orElse: () => Job(musteri: 1));
 
   void getJob(var id) async {
     try {

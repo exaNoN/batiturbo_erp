@@ -25,7 +25,7 @@ class Customer {
     this.alacak,
   });
 
-  factory Customer.fromJson(Map<String, dynamic> json) => Customer(
+  factory Customer.fromJson(dynamic json) => Customer(
         id: json["id"],
         name: json["name"],
         phone: json["phone"],

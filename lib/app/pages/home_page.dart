@@ -1,7 +1,5 @@
 import 'package:batiturbo_erp/app/modules/controllers/general_controller.dart';
-import 'package:batiturbo_erp/app/modules/controllers/home_controller.dart';
 import 'package:batiturbo_erp/app/modules/controllers/turbo_controller.dart';
-import 'package:batiturbo_erp/app/modules/models/models.dart';
 import 'package:batiturbo_erp/app/modules/widgets/job_tile.dart';
 import 'package:batiturbo_erp/app/pages/job_page.dart';
 import 'package:batiturbo_erp/app/pages/dev_note.dart';
@@ -13,65 +11,44 @@ import 'package:get/get.dart';
 
 // ignore: use_key_in_widget_constructors, must_be_immutable
 class HomePage extends StatelessWidget {
-  //var jobC = Get.put(JobController());
-  var customerC = Get.put(CustomerController());
-  var turboC = Get.put(TurboController());
+  var jobC = Get.find<JobController>();
+  var customerC = Get.find<CustomerController>();
+  var turboC = Get.find<TurboController>();
   @override
   Widget build(BuildContext context) {
-    customerC.fetchCustomers();
-    //jobC.fetchJobs();
-    // print("jobC.jobList.length: ${jobC.jobList.length}");
-    // print("customerC.customerList.length: ${customerC.customerList.length}");
-    turboC.fetchTurbos();
-    // print("turboC.turboList.length: ${turboC.turboList.length}");
-
     return Scaffold(
         appBar: AppBar(
           leading: IconButton(
               onPressed: () => Get.off(DevNote()), icon: Icon(Icons.info)),
           title: const Text('HomePage'),
-          actions: [
-            IconButton(
-                onPressed: () {
-                  // customerC.fetchCustomers();
-                  // jobC.fetchJobs();
-                  // // print("jobC.jobList.length: ${jobC.jobList.length}");
-                  // // print("customerC.customerList.length: ${customerC.customerList.length}");
-                  // turboC.fetchTurbos();
-                },
-                icon: Icon(Icons.refresh))
-          ],
         ),
         body: SafeArea(
             child: Container(
           margin: EdgeInsets.all(8),
           child: Column(
             children: [
-              Expanded(
-                child: GetBuilder<JobController>(
-                    init: JobController(),
-                    builder: (val) {
-                      if (val.isLoading.value == true) {
-                        print("val.isLoading.value == ${val.isLoading.value}");
+              Expanded(child: Obx(() {
+                if (jobC.isLoading.value == true) {
+                  print("val.isLoading.value == ${jobC.isLoading.value}");
 
-                        // jobC.fetchJobs();
-                        return Center(
-                          child: CircularProgressIndicator(),
-                        );
-                      } else {
-                        if (val.jobList.length > 0) {
-                          return ListView.builder(
-                              itemCount: val.jobList.length,
-                              itemBuilder: (context, index) {
-                                return JobTile(context, index);
-                              });
-                        } else
-                          return Center(
-                            child: Text("Data Not Found"),
-                          );
-                      }
-                    }),
-              ),
+                  // jobC.fetchJobs();
+                  return Center(
+                    child: CircularProgressIndicator(),
+                  );
+                } else {
+                  if (jobC.jobList.length > 0) {
+                    return ListView.builder(
+                        itemCount: jobC.jobList.length,
+                        itemBuilder: (context, index) {
+                          return JobTile(context, index);
+                        });
+                  } else
+                    return Center(
+                      child: Text("Data Not Found"),
+                    );
+                }
+              })),
+
               // MaterialButton(
               //   color: Colors.blue,
               //   onPressed: () {

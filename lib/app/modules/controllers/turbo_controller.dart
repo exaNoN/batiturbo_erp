@@ -22,6 +22,9 @@ class TurboController extends GetxController {
     super.onInit();
   }
 
+  Turbo findTurbo(int id) => turboList.firstWhere((turbo) => turbo.id == id,
+      orElse: () => Turbo(name: 'yanlış aranan turbo'));
+
   void getTurbo(var id) async {
     try {
       isLoading(true);

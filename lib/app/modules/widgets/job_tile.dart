@@ -5,9 +5,9 @@ import 'package:get/get.dart';
 
 // ignore: must_be_immutable
 class JobTile extends StatelessWidget {
-  var jobController = Get.put(JobController());
-  var customerController = Get.put(CustomerController());
-  var turboController = Get.put(TurboController());
+  var jobC = Get.find<JobController>();
+  var customerC = Get.find<CustomerController>();
+  var turboC = Get.find<TurboController>();
 
   var context;
   int index;
@@ -16,16 +16,17 @@ class JobTile extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    print(index.toString());
-
     //jobController.fetchJobs();
-    //customerController.customerList.refresh();
+    customerC.customerList.refresh();
     //turboController.turboList.refresh();
-    Job job = jobController.jobList[index];
+    Job job = jobC.jobList[index];
+    print("jobList[$index].musteri = ${job.musteri.toString()}");
+
     int customerId = int.parse(job.musteri.toString());
-    Customer customer = customerController.customerList[customerId];
+    Customer customer = customerC.findCustomer(customerId);
     int turboId = int.parse(job.turbo.toString());
-    Turbo turbo = turboController.turboList[turboId];
+    Turbo turbo = turboC.findTurbo(turboId);
+    //Turbo turbo = turboC.turboList[turboId];
 
     return Container(
       padding: EdgeInsets.all(8),
