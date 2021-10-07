@@ -15,6 +15,7 @@ dependencies:
   flutter_typeahead: ^3.2.1
   font_awesome_flutter: ^9.1.0
   get: ^4.3.8
+  get_storage: ^2.0.3
 
 dev_dependencies:
   flutter_test:
@@ -23,4 +24,4 @@ dev_dependencies:
 flutter:
   uses-material-design: true
   assets:
-   - assets/
+    - assets/
